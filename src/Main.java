@@ -16,12 +16,9 @@ public class Main extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
 
-       //  StartScene startScene = new StartScene(0,0,WINDOW_WIDTH,WINDOW_HEIGHT);
-        //this.add(startScene);
 
 
-
-        GameScene gameScene=new GameScene(0,0,WINDOW_WIDTH,WINDOW_HEIGHT);
+        GameScene gameScene=new GameScene();
         this.add(gameScene);
 
     }

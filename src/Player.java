@@ -13,6 +13,14 @@ public class Player extends JFrame {
     public static final int LEFT = 2;
     public static final int UP = 3;
     public static final int DOWN = 4;
+    public static final int MAX_OF_FAIL= 2;
+    public static final int MAX_OF_LEFT = 1;
+    public static final int MAX_OF_RIGHT= 655;
+    public static final int MAX_OF_UP= 2;
+    public static final int MAX_OF_DOWN= 530;
+
+
+
     int sumOfFails =0;
 
 
@@ -42,10 +50,10 @@ public class Player extends JFrame {
         Rectangle rectangle1 = new Rectangle(rectangle.x, rectangle.y,
                 rectangle.width,rectangle.height);
         Rectangle player = new Rectangle(x, y, width, height);
-        if (player.intersects(rectangle1)) {
-            collision = true;
-            System.out.println("yess");
-        }
+            if (player.intersects(rectangle1)) {
+                collision = true;
+            }
+
         return collision;
     }
 
@@ -60,7 +68,7 @@ public class Player extends JFrame {
             collision = true;
             sumOfFails++;
             System.out.println(sumOfFails);
-            if (sumOfFails > 2) {
+            if (sumOfFails > MAX_OF_FAIL) {
         //        this.add(gameOver);
                 System.out.println(collision);
             }
@@ -70,19 +78,31 @@ public class Player extends JFrame {
     }
 
     public void moveRight () {
-        this.x++;
+        if (x <= MAX_OF_RIGHT) {
+            this.x++;
+
+        }
     }
 
     public void moveLeft () {
-        this.x--;
+        if (x>MAX_OF_LEFT) {
+            this.x--;
+
+        }
     }
 
     public void moveUp () {
-        this.y--;
+        if (y>MAX_OF_UP) {
+            this.y--;
+
+        }
     }
 
     public void moveDown () {
-        this.y++;
+        if (y <MAX_OF_DOWN) {
+            this.y++;
+
+        }
     }
 
     public int getX() {
